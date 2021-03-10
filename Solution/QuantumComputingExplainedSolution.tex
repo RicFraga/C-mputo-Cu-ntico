@@ -5,6 +5,7 @@
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{graphicx}
+\usepackage{physics}
 
 \graphicspath{ {images/} }
 
@@ -63,17 +64,20 @@ We can see that the result of the circuit is $\overline{\overline{x} \ \overline
 $\overline{xy} = \overline{x} + \overline{y}$
 \end{center}
 Using this rule we can see that \\
-\begin{center}
-$\overline{\overline{x} \ \overline{y}} = \overline{\overline{x}} + \overline{\overline{y}}$\\
-$\overline{\overline{x}} + \overline{\overline{y}} = x + y$
-\end{center}
+\begin{align*}
+\overline{\overline{x} \ \overline{y}} = \overline{\overline{x}} + \overline{\overline{y}}\\
+\overline{\overline{x}} + \overline{\overline{y}} = x + y
+\end{align*}
 \textbf{1.3} A kilobyte is 1024 bytes. How many messages can it store?\\ \\
 \textbf{Solution}\\
 This is a very straight forward solution, all that we have to remember is\\
+\begin{align*}
+1 byte &= 8 bits\\
+1024 bytes &= 1024 * 8\\
+&= 8192 bits
+\end{align*}
 \begin{center}
-$1 byte = 8 bits$\\
-$1024 bytes= 1024 * 8 = 8192 bits$\\
-$\therefore{}$ $1 kilobyte$ can store $2^{8192} messages$
+$\therefore{}$ 1 kilobyte can store $2^{8192}$ messages\\
 \end{center}
 \textbf{1.4} What is the entropy associated with the tossing of a fair coin?\\ \\
 \textbf{Solution}\\
@@ -82,12 +86,12 @@ Let's remember that a fair coin implies the following\\
 $P(\{heads\}) = P(\{tails\}) = 0.5$
 \end{center}
 So, being $X$ the event of tossing a fair coin\\
-\begin{center}
-$H(X) = -\sum p_i \log_2 p_i$\\
-$= -(0.5 \log_2 0.5 + 0.5 \log_2 0.5)$\\
-$= -(-0.5 - 0.5)$\\
-$=1$
-\end{center}
+\begin{align*}
+H(X) &= -\sum p_i \log_2 p_i\\
+&= -(0.5 \log_2 0.5 + 0.5 \log_2 0.5)\\
+&= -(-0.5 - 0.5)\\
+&= 1
+\end{align*}
 \textbf{1.5} Suppose that $X$ consists of the characters A, B, C, D that occur in a signal with respective probabilities 0.1, 0.4, 0.25, 0.25, what is  the Shanon's entropy?\\ \\
 \textbf{Solution}\\
 Given the probabilities \\
@@ -98,12 +102,12 @@ $P(\{C\}) = 0.25$\\
 $P(\{D\}) = 0.25$\\
 \end{center}
 The Shanon's entropy is the following\\
-\begin{center}
-$H(X) = - \sum p_i log_2 p_i$\\
-$= -(0.1 \log_2 0.1 + 0.4 \log_2 0.4 + 0.25 \log_2 0.25 + 0.25 \log_2 0.25)$
-$= -(0.332 - 0.528 - 0.5 - 0.5)$\\
-$= 1.86$
-\end{center}
+\begin{align*}
+H(X) &= - \sum p_i log_2 p_i\\
+&= -(0.1 \log_2 0.1 + 0.4 \log_2 0.4 + 0.25 \log_2 0.25 + 0.25 \log_2 0.25)\\
+&= -(0.332 - 0.528 - 0.5 - 0.5)\\
+&= 1.86
+\end{align*}
 \textbf{1.6} A room full of people has incomes distributed in the following way\\ \\
 $n(25.5) = 3$\\
 $n(30) = 5$\\
@@ -120,21 +124,115 @@ $\frac{n_j}{n}$
 \end{center}
 Where $n_j$ is the count of occurences of that income, so the higher the occurences the higher the probability, knowing that the higher occurence is 7, $n(42)$ is the most probable income with a value of $\frac{7}{22}$.\\
 The average income is given by the expresion \\
-\begin{center}
-$\mu = \sum j p_j$\\
-$= 25.5(0.13) + 30(0.22) + 42(0.31) + 50(0.13) + 63(0.04) + 75(0.09) + 90(0.04)$\\
-$= 44.25$
-\end{center}
+\begin{align*}
+\mu &= \sum j p_j\\
+&= 25.5(0.13) + 30(0.22) + 42(0.31) + 50(0.13) + 63(0.04) + 75(0.09) + 90(0.04)\\
+&= 44.25
+\end{align*}
 The variance of the distribution can be calculated in many ways, but I'm going to use the next formula\\
 \begin{center}
 $\sigma^2 = \frac{\sum X^2}{N} - \mu^2$
 \end{center}
 Where $X$ is the random variable, N is the number of observations, and $\mu$ is the mean of the distribution. Therefore, the variance  is\\
-\begin{center}
-$\sigma^2 = \frac{1}{22}(1950.75 + 4500 + 12348 + 7500 + 3969 + 11250 + 8100) - 44.25^2$\\
-$= 2255.3522 - 1958.0625 = 297.289$
-\end{center}
+\begin{align*}
+\sigma^2 &= \frac{1}{22}(1950.75 + 4500 + 12348 + 7500 + 3969 + 11250 + 8100) - 44.25^2\\
+&= 2255.3522 - 1958.0625 = 297.289
+\end{align*}
 
+\section{Qubits and Quantum States}
+\textbf{2.1} A quantum state is in the state\\ \\
+\begin{center}
+$\frac{(1 - i)}{\sqrt{3}}\ket{0} + \frac{1}{\sqrt{3}}\ket{1}$\\
+\end{center}
+If a measurement is made, what is the probability the system is in the state $\ket{0}$ or in state $\ket{1}$?\\ \\
+\textbf{Solution}\\
+The probability that the system is in state $\ket{0}$ is\\
+\begin{center}
+$\mid\alpha\mid ^2$, where $\alpha = \frac{(1 - i)}{\sqrt{3}}$\\
+\end{center}
+And so\\
+\begin{align*}
+\mid\alpha\mid ^2 &= (\alpha)(\alpha)^*\\
+&= (\frac{1 - i}{\sqrt{3}})(\frac{1 + i}{\sqrt{3}})\\
+&= \frac{1^2 - i^2}{\sqrt{3}}\\
+&= \frac{2}{3}\\
+\end{align*}
+So the probability that the system is in state $\ket{0}$ is $\frac{2}{3}$, and as we know (if the system is normalized) the probability of the state being in state $\ket{1}$ is\\
+\begin{center}
+$1 - \mid\alpha\mid ^2$\\
+\end{center}
+But we don't know if the system is normalized, and so we are going to calculate the probability of the system being in state $\ket{1}$ as we did for state $\ket{0}$\\
+Let $\beta = \frac{1}{\sqrt{3}}$\\
+\begin{align*}
+\mid\beta\mid^2 &= (\beta)(\beta)^*\\
+&= (\frac{1}{\sqrt{3}})(\frac{1}{\sqrt{3}})\\
+&= \frac{1}{3}
+\end{align*}
+\textbf{2.2} Two quantum states are given by\\
+\begin{center}
+$\ket{a} = \begin{pmatrix} -4i \\ 2 \end{pmatrix}$,   $\ket{b} = \begin{pmatrix} 1 \\ -1 + i \end{pmatrix}$
+\end{center}
+\textit{(A)} Find $\ket{a + b}$\\
+\textit{(B)} Calculate $3\ket{a} - 2\ket{b}$\\
+\textit{(C)} Normalize $\ket{a}$, $\ket{b}$\\ \\
+\textbf{Solution}\\
+\textit{(A)}
+\begin{align*}
+\ket{a + b} &= \begin{pmatrix} -4i \\ 2 \end{pmatrix} + \begin{pmatrix} 1 \\ -1 + i \end{pmatrix}\\
+&= \begin{pmatrix} 1-4i \\ 2-1+i \end{pmatrix}\\
+&= \begin{pmatrix} 1-4i \\ 1+i \end{pmatrix}\\
+\end{align*}
+\textit{(B)} 
+\begin{align*}
+3\ket{a} - 2\ket{b} &= 3\begin{pmatrix} -4i \\ 2 \end{pmatrix} - 2\begin{pmatrix} 1 \\ -1 + i \end{pmatrix}\\
+&= \begin{pmatrix} -12i \\ 6 \end{pmatrix} - \begin{pmatrix} 2 \\ -2 + 2i \end{pmatrix}\\
+&= \begin{pmatrix} 2-12i \\ 6-2+2i \end{pmatrix}\\
+&= \begin{pmatrix} 2-12i \\ 4+2i \end{pmatrix}\\
+&= 2\begin{pmatrix} 1-6i \\ 2+i \end{pmatrix}\\
+\end{align*}
+\textit{(C)}
+Normalizing $\ket{a}$\\ \\
+Let $\ket{\overline{w1}} = {\ket{a}}$\\
+\begin{align*}
+\bra{\overline{w1}}\ket{\overline{w1}} &= \begin{pmatrix} -4i \\ 2 \end{pmatrix}^\dag \begin{pmatrix} -4i \\ 2 \end{pmatrix}\\
+&= \begin{pmatrix} -4i & 2 \end{pmatrix}^* \begin{pmatrix} -4i \\ 2 \end{pmatrix}\\
+&= \begin{pmatrix} 4i & 2 \end{pmatrix} \begin{pmatrix} -4i \\ 2 \end{pmatrix}\\
+&= -16i^2 + 4\\
+&= 16 + 4\\
+&= 20
+\end{align*}
+Then we have\\
+\begin{align*}
+\ket{w1} &= \frac{\ket{\overline{w1}}}{\sqrt{\bra{a}\ket{a}}}\\
+&= \frac{1}{\sqrt{20}}\begin{pmatrix} -4i \\ 2\end{pmatrix}\\
+&= \frac{1}{2\sqrt{5}}\begin{pmatrix} -4i \\ 2\end{pmatrix}\\
+&= \frac{1}{\sqrt{5}}\begin{pmatrix} -2i \\ 1\end{pmatrix}\\
+\end{align*}
+Now we have $\ket{a}$ normalized, which is $\ket{w1}$ Now we normalize $\ket{b}$\\
+Let\\
+\begin{center}
+$\ket{\overline{w_2}} = \ket{b} - \frac{\bra{\overline{w_1}}\ket{b}}{\bra{\overline{w_1}}\ket{\overline{w_1}}} \ket{\overline{w_1}}$
+\end{center}
+Let's start by calculating $\bra{\overline{w_1}}\ket{b}$\\
+\begin{align*}
+\bra{\overline{w_1}}\ket{b} &= \begin{pmatrix} 4i & 2\end{pmatrix} \begin{pmatrix} 1 \\ -1+i\end{pmatrix}\\
+&= 4i -2 + 2i\\
+&= -2 + 6i
+\end{align*}
+We already calculated $\bra{\overline{w1}}\ket{\overline{w1}}$ which is 20, so then we calculate $\ket{\overline{w_2}}$\\
+\begin{align*}
+\ket{\overline{w_2}} &= \ket{b} - \frac{\bra{\overline{w_1}}\ket{b}}{\bra{\overline{w_1}}\ket{\overline{w_1}}} \ket{\overline{w_1}}\\
+&= \begin{pmatrix} 1 \\ -1+i \end{pmatrix} - \frac{-2+6i}{20} \begin{pmatrix} -4i \\ 2 \end{pmatrix}\\
+&= \begin{pmatrix} 1 \\ -1+i \end{pmatrix} + \frac{2-6i}{20} \begin{pmatrix} -4i \\ 2 \end{pmatrix}\\
+&= \begin{pmatrix} 1 \\ -1+i \end{pmatrix} + \frac{2(1-3i)}{20} \begin{pmatrix} -4i \\ 2 \end{pmatrix}\\
+&= \begin{pmatrix} 1 \\ -1+i \end{pmatrix} + \frac{1-3i}{10} \begin{pmatrix} -4i \\ 2 \end{pmatrix}\\
+&= \begin{pmatrix} 1 \\ -1+i \end{pmatrix} + \frac{1}{10} \begin{pmatrix} -4i+12i^2 \\ 2-6i \end{pmatrix}\\
+&= \begin{pmatrix} 1 \\ -1+i \end{pmatrix} + \begin{pmatrix}\frac{-12-4i}{10} \\ \frac{2-6i}{10}\end{pmatrix}\\
+&= \begin{pmatrix} 1 \\ -1+i \end{pmatrix} + \begin{pmatrix}\frac{-6-2i}{5} \\ \frac{1-3i}{5}\end{pmatrix}\\
+&= \begin{pmatrix} 1 + \frac{-6-2i}{5} \\ -1+i + \frac{1-3i}{5} \end{pmatrix}\\
+&= \frac{1}{5} \begin{pmatrix} -1-2i \\ -4+2i \end{pmatrix}
+\end{align*}
+Now that we have this, we can normalize this state, to do so we need to 
 
 
 \printindex
